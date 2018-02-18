@@ -1,8 +1,8 @@
 <template>
-  <div class="card">
+  <div class="card" @click="openTheme(item)">
     <div class="card-image">
       <figure class="image is-4by3">
-        <img :src="item.repoUrl + 'preview/thumb.png'" :alt="item.title"/>
+        <img :src="'https://vue-git-cms-templates.github.io/' + item.repoUrl + '/preview/thumb.png'" :alt="item.title"/>
       </figure>
     </div>
     <div class="card-content">
@@ -20,6 +20,13 @@ export default {
   name: 'GalleryThumbnail',
 
   props: ['item'],
+
+  methods: {
+    openTheme(item) {
+      console.log('openTheme', item);
+      this.$emit('onOpenTheme', item);
+    },
+  }
 };
 </script>
 
